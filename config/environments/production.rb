@@ -8,7 +8,7 @@ Rails.application.configure do
   config.assets.js_compressor = :uglifier
   config.assets.compile = false
   config.active_storage.service = :amazon
-  config.force_ssl = true
+  config.force_ssl = false
   config.log_level = :debug
   config.log_tags = [ :request_id ]
   config.action_mailer.perform_caching = false
