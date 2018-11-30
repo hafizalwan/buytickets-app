@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BuyticketsApp</title>
+    <title>BuyTickets.my | Langkawi Island | Mangrove Tour | Cable Car | Xtreme Park | Skytrex Langkawi | Langkawi Popular Activities</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => "image/x-icon" %>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/blitzer/jquery-ui.css">
+
   </head>
 
   <body>
+
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/message' %>
+
     <%= yield %>
+
+    <%= render 'shared/footer' %>
+
   </body>
 </html>

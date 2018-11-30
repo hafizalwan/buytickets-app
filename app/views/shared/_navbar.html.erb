@@ -1,0 +1,58 @@
+<!-- Dropdown Desktop -->
+<ul id="dropdown-lg" class="dropdown-content">
+  <li><%= link_to 'Your Activities', your_activities_path %></li>
+  <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+  <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %></li>
+</ul>
+<!-- Sidenav Menu -->
+<ul id="mobile-menu" class="sidenav">
+  <li><%= link_to 'Your Activities', your_activities_path %></li>
+  <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+  <li><%= link_to 'LOGOUT', destroy_user_session_path, method: :delete %></li>
+</ul>
+<div class="navbar-fixed">
+    <nav class="grey lighten-5">
+        <div class="container">
+            <div class="nav-wrapper">
+                <%= link_to image_tag('weblogo/main-logo-web.png', class: 'img-logo'), root_path, class: 'brand-logo' %>
+                <ul class="right hide-on-med-and-down">
+                    <li><%= link_to 'Rental Cars', rental_cars_path %></li>
+                    <li><%= link_to 'Packages', packages_path %></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <% if (!user_signed_in?) %>
+                      <li><%= link_to 'LOGIN', new_user_session_path, class: 'waves-effect waves-light btn-small red white-text' %></li>
+                    <% else %>
+                      <li>
+                        <a class="dropdown-trigger" href="#!" data-target="dropdown-lg">
+                          <%= current_user.fullname %><i class="material-icons right">arrow_drop_down</i></a>
+                      </li>
+                    <% end %>
+                </ul>
+            </div><!-- nav-wrapper -->
+        </div><!-- container -->
+    </nav>
+</div><!-- navbar-fixed -->
+
+<!-- Mobile Nav -->
+<div class="mobile-nav hide-on-large-only center">
+    <div class="container">
+        <div class="row">
+            <div class="col s3">
+                <%= link_to 'Car Rental', rental_cars_path, class: "waves-effect waves-light btn-flat" %>
+            </div>
+            <div class="col s3">
+              <%= link_to 'Packages', packages_path, class: "waves-effect waves-light btn-flat" %>
+            </div>
+            <div class="col s3">
+                <a href="#" class="waves-effect waves-light btn-flat">Contact Us</a>
+            </div>
+            <div class="col s3">
+              <% if (!user_signed_in?) %>
+                <%= link_to 'LOGIN', new_user_session_path, class: 'waves-effect waves-light btn-small red white-text' %>
+              <% else %>
+                <a href="#" data-target="mobile-menu" class="sidenav-trigger btn-small btn-flat"><i class="material-icons center">menu</i></a>
+              <% end %>
+            </div>
+        </div><!-- row -->
+    </div><!-- container -->
+</div><!-- mobile-nav -->
